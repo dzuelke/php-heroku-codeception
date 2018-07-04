@@ -2,7 +2,7 @@
   "environments": {
     "test": {
       "scripts": {
-        "test-setup": "bash -c 'heroku-php-apache2 2>&1 &' > server.out && sleep 5 && cat server.out",
+        "test-setup": "heroku-php-apache2 >server.out 2>&1 & sleep 5 && cat server.out",
         "test": "codecept run || { status=$?; echo '-----> Server logs:'; cat server.out; exit $status; }"
       }
     }
