@@ -2,7 +2,7 @@
   "environments": {
     "test": {
       "scripts": {
-		"test": "nohup bash -c 'PORT=8080 heroku-php-apache2 2>&1 &' > /dev/null && sleep 5 && codecept run"
+		"test": "nohup bash -c 'heroku-php-apache2 2>&1 &' > /dev/null && sleep 5 && codecept run"
       }
     }
   }
