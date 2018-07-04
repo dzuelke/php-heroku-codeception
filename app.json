@@ -2,8 +2,8 @@
   "environments": {
     "test": {
       "scripts": {
-        "test-setup": "nohup bash -c 'heroku-php-apache2 2>&1 &' > /dev/null && sleep 5",
-        "test": "codecept run"
+        "test-setup": "nohup bash -c 'heroku-php-apache2 2>&1 &' > nohup.out && sleep 5 && cat nohup.out",
+        "test": "codecept run || { status=$?; echo '-----> Server logs:'; cat nohup.out; exit $status; }"
       }
     }
   }
